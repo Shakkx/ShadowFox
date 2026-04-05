@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sharadhi R Hebbar — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ede8f5;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 40px auto;
+      background: #faf8ff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 36px rgba(100, 70, 160, 0.13);
+      display: flex;
+      border: 1px solid #ddd5f0;
+    }
+
+    .sidebar {
+      width: 255px;
+      min-width: 255px;
+      background: #3b2a6e;
+      color: #fff;
+      padding: 40px 24px;
+      border-right: 1px solid #2e2058;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.4);
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .sidebar-name { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .sidebar-role { font-size: 0.74rem; color: rgba(255,255,255,0.58); margin-bottom: 30px; line-height: 1.5; }
+
+    .s-heading {
+      font-size: 0.63rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 6px; margin-bottom: 12px; margin-top: 24px;
+    }
+
+    .s-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+    .s-list li {
+      font-size: 0.83rem; color: rgba(255,255,255,0.82);
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+
+    .s-list li::before { content: '›'; color: #c9b8ff; font-weight: 700; flex-shrink: 0; }
+
+    .s-list a { color: rgba(255,255,255,0.82); text-decoration: none; word-break: break-all; }
+
+    .main { flex: 1; padding: 42px 40px; background: #faf8ff; }
+
+    .main-header {
+      padding-bottom: 22px;
+      border-bottom: 2px solid #ede8f8;
+      margin-bottom: 30px;
+    }
+
+    .main-header h1 { font-size: 1.85rem; font-weight: 700; color: #3b2a6e; margin-bottom: 4px; }
+    .main-header p  { font-size: 0.88rem; color: #a898c8; }
+
+    .section { margin-bottom: 28px; }
+
+    .sec-title {
+      font-size: 0.66rem; font-weight: 700;
+      letter-spacing: 0.17em; text-transform: uppercase;
+      color: #6a4aaf;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .sec-title::after { content: ''; flex: 1; height: 1.5px; background: #ede8f8; }
+
+    .about-text { font-size: 0.87rem; color: #5a5070; line-height: 1.82; }
+
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .skill-pill {
+      background: #ede8f8; color: #4a2e9a;
+      border: 1.5px solid #c8b8ec; border-radius: 6px;
+      padding: 7px 18px; font-size: 0.82rem; font-weight: 600;
+    }
+
+    .project-card {
+      border: 1.5px solid #ddd5f0; border-radius: 9px;
+      padding: 17px 20px; margin-bottom: 12px;
+      background: #f5f0ff;
+    }
+
+    .project-card h4 { font-size: 0.92rem; font-weight: 600; color: #2e1f55; margin-bottom: 5px; }
+    .project-card p  { font-size: 0.83rem; color: #7a6a98; line-height: 1.65; }
+
+    .p-tag {
+      display: inline-block; margin-top: 10px;
+      background: #e8e0ff; color: #4a2e9a;
+      font-size: 0.69rem; font-weight: 600;
+      padding: 3px 10px; border-radius: 4px;
+    }
+
+    .edu-row {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 16px;
+      padding: 14px 0; border-bottom: 1px solid #ede8f8;
+    }
+
+    .edu-row:last-child { border-bottom: none; }
+
+    .edu-left h4 { font-size: 0.88rem; font-weight: 600; color: #2e1f55; margin-bottom: 3px; }
+    .edu-left p  { font-size: 0.78rem; color: #a898c8; line-height: 1.55; }
+
+    .edu-year {
+      font-size: 0.74rem; font-weight: 600; color: #4a2e9a;
+      background: #ede8f8; border-radius: 4px;
+      padding: 3px 10px; white-space: nowrap; flex-shrink: 0;
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 11px; }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px 14px;
+      border: 1.5px solid #ddd5f0; border-radius: 6px;
+      font-family: 'Poppins', sans-serif; font-size: 0.86rem;
+      color: #333; outline: none; resize: none;
+      background: #fff;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: #6a4aaf; }
+
+    .contact-form textarea { height: 95px; }
+
+    .btn-send {
+      align-self: flex-start; padding: 10px 26px;
+      background: #3b2a6e; color: #fff; border: none;
+      border-radius: 6px; font-family: 'Poppins', sans-serif;
+      font-size: 0.86rem; font-weight: 500; cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-send:hover { background: #6a4aaf; }
+
+    #thanks { display: none; margin-top: 8px; font-size: 0.86rem; color: #6a4aaf; font-weight: 500; }
+
+    @media (max-width: 680px) {
+      .page { flex-direction: column; margin: 0; border-radius: 0; }
+      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #2e2058; }
+      .main { padding: 26px 18px; }
+      .main-header h1 { font-size: 1.5rem; }
+      .edu-row { flex-direction: column; gap: 6px; }
+    }
+
+    .skill-pill,
+    .project-card {
+      transition: none;
+    }
+
+    .skill-pill:hover,
+    .project-card:hover {
+      background: #ede8f8;
+      color: #4a2e9a;
+      border-color: #c8b8ec;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .project-card:hover {
+      border: 1.5px solid #ddd5f0;
+      background: #f5f0ff;
+      box-shadow: none;
+    }
+
+    .s-list a:hover {
+      color: rgba(255,255,255,0.82);
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <aside class="sidebar">
+
+    <div class="avatar">
+      <img src="WhatsApp Image 2026-04-03 at 7.08.42 PM.jpeg" alt="Profile Image" onerror="this.onerror=null; this.src='https://placehold.co/80x80?text=S'"/>
+    </div>
+
+    <div class="sidebar-name">Sharadhi R Hebbar</div>
+    <div class="sidebar-role">2nd Year · CSE Student</div>
+
+    <div class="s-heading">Contact</div>
+    <ul class="s-list">
+      <li>9535412174</li>
+      <li><a href="mailto:sharadhihebbar06@gmail.com">sharadhihebbar06@gmail.com</a></li>
+      <li>Saligrama, Karnataka</li>
+    </ul>
+
+    <div class="s-heading">Languages Known</div>
+    <ul class="s-list">
+      <li>English</li>
+      <li>Kannada</li>
+      <li>Hindi</li>
+    </ul>
+
+    <div class="s-heading">Soft Skills</div>
+    <ul class="s-list">
+      <li>Team Leadership</li>
+      <li>Presentation</li>
+      <li>Communication</li>
+      <li>Critical Thinking</li>
+    </ul>
+
+  </aside>
+
+  <main class="main">
+
+    <div class="main-header">
+      <h1>Sharadhi R Hebbar</h1>
+      <p>Computer Science & Engineering Student — Saligrama, Karnataka</p>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">About Me</div>
+      <p class="about-text">
+        A motivated and curious Computer Science and Engineering student with a strong
+        interest in programming and web development. I enjoy working with multiple
+        languages and am always eager to learn new technologies. I am a good communicator,
+        a team player, and someone who loves taking on new challenges and growing
+        both technically and personally.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Technical Skills</div>
+      <div class="skills-wrap">
+        <span class="skill-pill">C</span>
+        <span class="skill-pill">C++</span>
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">HTML5</span>
+        <span class="skill-pill">CSS3</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Academic Projects</div>
+
+      <div class="project-card">
+        <h4>Personal Portfolio Website</h4>
+        <p>
+          This portfolio — designed and built using HTML and CSS as part of an
+          internship project to present my skills and background professionally.
+        </p>
+        <span class="p-tag">HTML · CSS</span>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Education</div>
+
+      <div class="edu-row">
+        <div class="edu-left">
+          <h4>B.E. in Computer Science & Engineering</h4>
+          <p>Mangalore Institute of Technology & Engineering<br>Moodbidri, Mangalore</p>
+        </div>
+        <span class="edu-year">2025 – Present</span>
+      </div>
+
+      <div class="edu-row">
+        <div class="edu-left">
+          <h4>PUC — Science</h4>
+          <p>Udupi Jnanasudha PU College<br>Naagabana Campus, Kalsanka, Udupi, Karnataka</p>
+        </div>
+        <span class="edu-year">2023 – 2024</span>
+      </div>
+
+      <div class="edu-row">
+        <div class="edu-left">
+          <h4>Preschooling to Class X</h4>
+          <p>G M Vidyaniketan Public School<br>Brahmavara, Karnataka</p>
+        </div>
+        <span class="edu-year">Up to 2022</span>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Get In Touch</div>
+      <form class="contact-form" id="contactForm">
+        <input type="text"  placeholder="Your Name"    required />
+        <input type="email" placeholder="Your Email"   required />
+        <textarea           placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-send">Send Message</button>
+      </form>
+      <p id="thanks">✅ Thanks! I'll get back to you soon.</p>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.reset();
+    document.getElementById('thanks').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
